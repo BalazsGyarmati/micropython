@@ -11,7 +11,7 @@ STATIC int slave_read_byte(mp_hal_pin_obj_t scl, mp_hal_pin_obj_t sda, uint8_t *
 //test of stop
     int p = 0;
     for (int i = 7; i >= 0; i--) {
-      
+
         while (true)  {
             if (mp_hal_pin_read(scl)==1){
 //test of stop                data = (data << 1) | mp_hal_pin_read(sda);
@@ -105,4 +105,5 @@ STATIC mp_obj_t slave_readin(size_t n_args, const mp_obj_t *args){
     slave_read(scl, sda, mp_obj_get_int(addr_in), (uint8_t*)vstr.buf, vstr.len);
     return mp_obj_new_str_from_vstr(&mp_type_bytes, &vstr);
 }
-MP_DEFINE_CONST_FUN_OBJ_VAR(slave_readin_obj,4, slave_readin);
+
+MP_DEFINE_CONST_FUN_OBJ_VAR(slave_readin_obj, 4, slave_readin);
