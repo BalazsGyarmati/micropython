@@ -7,7 +7,7 @@ MICROPY_PY_USSL = 1
 MICROPY_SSL_AXTLS = 1
 AXTLS_DEFS_EXTRA = -Dabort=abort_ -DRT_MAX_PLAIN_LENGTH=1024 -DRT_EXTRA=4096
 MICROPY_FATFS = 1
-MICROPY_PY_BTREE = 1
+MICROPY_PY_BTREE = 0
 BTREE_DEFS_EXTRA = -DDEFPSIZE=1024 -DMINCACHE=3
 
 FROZEN_DIR ?= scripts
@@ -136,6 +136,7 @@ endif
 DRIVERS_SRC_C = $(addprefix drivers/,\
 	bus/softspi.c \
 	dht/dht.c \
+	slave/slave.c \
         )
 
 SRC_S = \
